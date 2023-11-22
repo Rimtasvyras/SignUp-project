@@ -32,11 +32,11 @@
 }
 
 .region {
-    margin: 2rem 1.2rem 0rem 1.2rem;
+    margin: 1.5rem 1.2rem 0rem 1.2rem;
 }
 
 .mini-region {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.5rem;
 }
 
 body {
@@ -58,25 +58,29 @@ body {
     flex-direction: column;
     color: var(--neutral-dark-slate-grey);
     overflow: none;
+    padding-bottom: 2rem;
 
-    
 }
 
-.photo-section {
-    background-image: url(images/illustration-sign-up-mobile.svg) ;
-    background-size: 375px 284px;
-    height: 284px;
-    background-position: center;
+.photo-section-mobile svg {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.photo-section-desktop {
+    display: none;
 }
 
 
 .sign-up-info h2 {
-    font-size: var(--step-1);
+    font-size: clamp(1.9rem, -2.1727rem + 20.3636vw, 2.6rem);
     font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .sign-up-info p {
-    font-size: var(--step--2);
+    font-size: clamp(1rem, 0.7091rem + 1.4545vw, 1.05rem);
 }
 
 .benefit-list {
@@ -91,11 +95,16 @@ body {
  gap: 0.8rem;
 }
 
+.benefit-list li svg {
+    margin-top: clamp(0rem, -0.3571rem + 1.7857vw, 0.3125rem);
+}
+
 
 
 .email-submit-section {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .email-submit-section label {
@@ -125,9 +134,54 @@ body {
 .email-adress-submit-btn {
     height: 3.4rem;
     border: none;
+    width: 100%;
     border-radius: 0.5rem;
     background-color: var(--neutral-dark-slate-grey);
     color: var(--neutal-white);
     font-weight: 700;
     font-size: 0.9rem;
+}
+
+.email-adress-submit-btn:active {
+    background-image: linear-gradient(90deg, #FE5475,#F5746C,#FE6740);
+    box-shadow: 0px 7px 15px 2px  hsla(4, 100%, 67%, 0.623);
+}
+
+@media (min-width: 600px) {
+    .sign-up-container {
+        flex-direction: row-reverse;
+        max-width: 900px;
+        min-height: 1px;
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+
+    .photo-section-mobile {
+        display: none;
+    }
+
+    .photo-section-desktop {
+        display: block;
+        border-radius: 1rem;
+    }
+
+    .sign-up-info h2 {
+        font-size: clamp(1.9rem, -1.3rem + 8.5333vw, 3.5rem);
+    }
+
+    .region {
+        margin: 0;
+    }
+
+    .mini-region {
+        margin-bottom: 0.8rem;
+    }
+
+    .sign-up-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: clamp(1rem, -1rem + 5.3333vw, 2rem);
+        margin-right: clamp(1rem, -5rem + 16vw, 4rem);
+    }
 }
